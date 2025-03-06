@@ -1,0 +1,76 @@
+/* Apply Times New Roman to the entire page */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: 'Times New Roman', serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(to right, #0066cc, #003366);
+  color: white;
+  border-radius: 8px;
+  font-family: 'Times New Roman', serif;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Description Section */
+.clanDescription {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Times New Roman', serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.clanList {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.clanItem {
+  font-size: 1.1rem;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: transform 0.2s ease-in-out;
+  font-family: 'Times New Roman', serif;
+}
+
+.clanItem:hover {
+  transform: scale(1.02);
+  background: #f2f2f2;
+}
+
+.details {
+  color: #555;
+  font-size: 0.9rem;
+  margin-left: 5px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #777;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  font-family: 'Times New Roman', serif;
+}

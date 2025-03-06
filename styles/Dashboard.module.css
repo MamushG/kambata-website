@@ -1,0 +1,110 @@
+/* Dashboard Page Styling */
+
+/* Full Page Container */
+.container {
+    max-width: 700px;
+    margin: 50px auto;
+    text-align: center;
+    font-family: "Times New Roman", serif;
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dashboard Title */
+  .title {
+    font-size: 2rem;
+    color: #004080;
+    margin-bottom: 20px;
+  }
+  
+  /* Profile Card */
+  .card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Profile Header */
+  .profileHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .profileImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #004080;
+  }
+  
+  /* Highlighted Username */
+  .highlight {
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  /* Membership Info Section */
+  .infoSection {
+    background: #f2f2f2;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .status {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  /* Button Container */
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  
+  /* Buttons */
+  .button, .logoutButton {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .button {
+    background-color: #008cba;
+    color: white;
+  }
+  
+  .button:hover {
+    background-color: #005f8b;
+    transform: scale(1.05);
+  }
+  
+  .logoutButton {
+    background-color: red;
+    color: white;
+  }
+  
+  .logoutButton:hover {
+    background-color: darkred;
+  }
+  
+  /* Back Link */
+  .backLink {
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+  

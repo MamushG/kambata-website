@@ -1,0 +1,120 @@
+/* Global Styling */
+body {
+  font-family: "Times New Roman", serif;
+  color: black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Home Container */
+.homeContainer {
+  text-align: center;
+  padding: 40px;
+}
+
+/* Hero Section */
+.heroSection {
+  background-color: #004080;
+  color: white;
+  padding: 80px 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Hero Title and Image */
+.heroTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.heroImage {
+  width: 50px;
+  height: auto;
+}
+
+/* Hero Title */
+.heroTitle {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Hero Text */
+.heroText {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Button Row */
+.buttonRow {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.button {
+  background-color: #008cba;
+  color: white;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #005f8b;
+  transform: scale(1.05);
+}
+
+/* Layout for Images and Text */
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 40px auto;
+  gap: 20px;
+}
+
+/* Left-Aligned Image */
+.leftImage {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Section */
+.textContent {
+  max-width: 600px;
+  text-align: left;
+}
+
+.textContent h2 {
+  font-size: 1.5rem;
+  color: #004080;
+}
+
+.textContent p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  color: #555;
+}

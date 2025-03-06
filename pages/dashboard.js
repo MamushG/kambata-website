@@ -1,0 +1,80 @@
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+export default function Dashboard() {
+  const router = useRouter();
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (!storedUser) {
+      router.push("/signin"); // Redirect if not signed in
+    } else {
+      setCurrentUser(storedUser);
+    }
+  }, []);
+
+  if (!currentUser) return <p>Loading...</p>;
+
+  return (
+    <div style={containerStyle}>
+      <h1>🏠 Member Dashboard</h1>
+      <p><strong>Welcome, {currentUser.firstName}!</strong></p>
+      <p><strong>Email:</strong> {currentUser.email}</p>
+      <p><strong>Phone:</strong> {currentUser.phone}</p>
+      <p><strong>Membership Status:</strong> ✅ Active</p>
+
+      <div style={buttonContainer}>
+        <Link href="/update-profile">
+          <button style={buttonStyle}>✏️ Update Profile</button>
+        </Link>
+
+        {/* 💳 Pay Membership Fee via Cash App */}
+        <Link href="https://cash.app/$kambatapage" target="_blank" rel="noopener noreferrer">
+          <button style={buttonStyle}>💳 Pay Membership Fee via Cash App</button>
+        </Link>
+
+        <button style={logoutButtonStyle} onClick={() => { localStorage.removeItem("currentUser"); router.push("/signin"); }}>
+          🚪 Log Out
+        </button>
+      </div>
+
+      <p style={{ marginTop: "15px" }}>
+        <Link href="/">⬅️ Back to Home</Link>
+      </p>
+    </div>
+  );
+}
+
+// Styles
+const containerStyle = {
+  padding: "40px",
+  maxWidth: "500px",
+  margin: "0 auto",
+  textAlign: "center",
+  fontFamily: "Arial, sans-serif",
+};
+
+const buttonContainer = {
+  display: "flex",
+  flexDirection: "column",
+  gap: "10px",
+  marginTop: "20px",
+};
+
+const buttonStyle = {
+  padding: "12px",
+  fontSize: "1rem",
+  borderRadius: "5px",
+  border: "none",
+  cursor: "pointer",
+  background: "#007bff",
+  color: "white",
+};
+
+const logoutButtonStyle = {
+  ...buttonStyle,
+  background: "red",
+};
+

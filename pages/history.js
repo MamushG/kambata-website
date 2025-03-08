@@ -31,16 +31,23 @@ export default function History() {
 
         {/* Identity Section */}
         <section className={styles.section}>
-          <h2>🌍 The Identity of Kambata: Ethiopia’s Cultural ‘Melting Pot’</h2>
+          <h2>🌍 The Identity of Kambata: Ethiopia&rsquo;s Cultural &lsquo;Melting Pot&rsquo;</h2>
           <p>
-            The origins of the name ‘Kambata’ are debated. Some believe it was given by the Oromos, meaning, “You are surrounded—how will you escape?” Others trace it to the Ambericho Seven Tribes.
+            The origins of the name &lsquo;Kambata&rsquo; are debated. Some believe it was given by the Oromos, meaning, &ldquo;You are surrounded&mdash;how will you escape?&rdquo; Others trace it to the Ambericho Seven Tribes.
           </p>
         </section>
 
         {/* Mount Hambaricho Section */}
         <section className={styles.section}>
           <h2>🏔️ Mount Hambaricho – A Historic Landmark</h2>
-          <Image src="/images/hambaricho.jpg" alt="Mount Hambaricho" width={600} height={400} className={styles.image} />
+          <Image 
+            src="/images/hambaricho.jpg"
+            alt="Mount Hambaricho"
+            width={600}
+            height={400}
+            className={styles.image}
+            priority
+          />
           <p>One of the most significant historical and cultural sites of Kambata, featuring 777 stairs—believed to be the first in Africa and the seventh in the world.</p>
         </section>
 

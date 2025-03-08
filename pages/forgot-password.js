@@ -16,14 +16,10 @@ export default function ForgotPassword() {
       return;
     }
 
-    try {
-      // Simulate sending email
-      setTimeout(() => {
-        setStatus({ success: true, message: '📩 A password reset link has been sent to your email.' });
-      }, 1500);
-    } catch (error) {
-      setStatus({ success: false, message: '🚫 Error sending reset link. Please try again.' });
-    }
+    // Simulate sending email
+    setTimeout(() => {
+      setStatus({ success: true, message: '📩 A password reset link has been sent to your email.' });
+    }, 1500);
   };
 
   return (

@@ -34,7 +34,7 @@ export default function Contact() {
       } else {
         setStatus({ success: false, message: '🚫 Error sending message. Please try again.' });
       }
-    } catch (error) {
+    } catch {
       setStatus({ success: false, message: '⚠️ Network error. Please check your connection and try again.' });
     }
   };

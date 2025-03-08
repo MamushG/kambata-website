@@ -5,7 +5,6 @@ import Link from 'next/link';
 export default function Members() {
   const router = useRouter();
   const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
@@ -14,10 +13,8 @@ export default function Members() {
     const loggedInUser = JSON.parse(localStorage.getItem("currentUser"));
     if (!loggedInUser) {
       router.push("/signin"); // ✅ Redirect to Sign In if not logged in
-    } else {
-      setCurrentUser(loggedInUser);
     }
-  }, []);
+  }, [router]); // ✅ Fixed missing dependency warning
 
   return (
     <div style={containerStyle}>
@@ -26,7 +23,7 @@ export default function Members() {
 
       {users.length > 0 ? (
         <table style={tableStyle}>
-          <thead>
+          <thead style={tableHeadStyle}>
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
@@ -62,7 +59,7 @@ const containerStyle = {
   maxWidth: '600px',
   margin: '0 auto',
   textAlign: 'center',
-  fontFamily: 'Times New Roman, serif',
+  fontFamily: 'Arial, sans-serif',
 };
 
 const tableStyle = {
@@ -71,8 +68,7 @@ const tableStyle = {
   marginTop: '20px',
 };
 
-const tdThStyle = {
-  border: '1px solid #ddd',
-  padding: '10px',
-  textAlign: 'left',
+const tableHeadStyle = {
+  backgroundColor: '#007bff',
+  color: 'white',
 };

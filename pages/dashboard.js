@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -6,14 +6,19 @@ export default function Dashboard() {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(() => {
+  // ✅ Use useCallback to prevent unnecessary re-renders
+  const checkUser = useCallback(() => {
     const storedUser = JSON.parse(localStorage.getItem("currentUser"));
     if (!storedUser) {
       router.push("/signin"); // Redirect if not signed in
     } else {
       setCurrentUser(storedUser);
     }
-  }, []);
+  }, [router]);
+
+  useEffect(() => {
+    checkUser();
+  }, [checkUser]); // ✅ Now includes router dependency correctly
 
   if (!currentUser) return <p>Loading...</p>;
 
@@ -35,7 +40,10 @@ export default function Dashboard() {
           <button style={buttonStyle}>💳 Pay Membership Fee via Cash App</button>
         </Link>
 
-        <button style={logoutButtonStyle} onClick={() => { localStorage.removeItem("currentUser"); router.push("/signin"); }}>
+        <button style={logoutButtonStyle} onClick={() => { 
+          localStorage.removeItem("currentUser"); 
+          router.push("/signin"); 
+        }}>
           🚪 Log Out
         </button>
       </div>
@@ -77,4 +85,3 @@ const logoutButtonStyle = {
   ...buttonStyle,
   background: "red",
 };
-

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import styles from "../styles/UpdateProfile.module.css";
 
@@ -21,26 +21,32 @@ export default function UpdateProfile() {
       setCurrentUser(storedUser);
       setUpdatedUser(storedUser);
     }
-  }, []);
+  }, [router]); // ✅ Fixed: Added router as a dependency
 
   const handleChange = (e) => {
-    setUpdatedUser({ ...updatedUser, [e.target.name]: e.target.value });
+    setUpdatedUser((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleUpdate = (e) => {
-    e.preventDefault();
+  const handleUpdate = useCallback(
+    (e) => {
+      e.preventDefault();
 
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    const updatedUsers = storedUsers.map((user) =>
-      user.email === currentUser.email ? updatedUser : user
-    );
+      const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+      const updatedUsers = storedUsers.map((user) =>
+        user.email === currentUser.email ? updatedUser : user
+      );
 
-    localStorage.setItem("users", JSON.stringify(updatedUsers));
-    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      localStorage.setItem("currentUser", JSON.stringify(updatedUser));
 
-    setSuccess("✅ Profile updated successfully!");
-    setTimeout(() => router.push("/dashboard"), 2000);
-  };
+      setSuccess("✅ Profile updated successfully!");
+      setTimeout(() => router.push("/dashboard"), 2000);
+    },
+    [currentUser, updatedUser, router] // ✅ Ensures the function updates properly
+  );
 
   return (
     <div className={styles.profileContainer}>

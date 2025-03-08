@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 
@@ -17,7 +18,14 @@ export default function Home() {
       {/* Hero Section */}
       <div className={styles.heroSection}>
         <div className={styles.heroTitleContainer}>
-          <img src="images/flag.png" alt="Kambata Flag" className={styles.heroImage} />
+          <Image 
+            src="/images/flag.png" 
+            alt="Kambata Flag" 
+            width={80} 
+            height={50} 
+            className={styles.heroImage} 
+            priority
+          />
           <h1 className={styles.heroTitle}>Welcome to Kambata Community - Atlanta, Georgia</h1>
         </div>
         <p className={styles.heroText}>
@@ -41,7 +49,14 @@ export default function Home() {
 
       {/* About Kambata Heritage */}
       <div className={styles.contentContainer}>
-        <img src="images/km3.jpg" alt="Kambata Heritage" className={styles.leftImage} />
+        <Image 
+          src="/images/km3.jpg" 
+          alt="Kambata Heritage" 
+          width={500} 
+          height={300} 
+          className={styles.leftImage} 
+          priority
+        />
         <div className={styles.textContent}>
           <h2>🌍 About Kambata Heritage</h2>
           <p>
@@ -59,7 +74,14 @@ export default function Home() {
 
       {/* Kookata Traditional Justice System */}
       <div className={styles.contentContainer}>
-        <img src="images/flag.png" alt="Kookata System" className={styles.leftImage} />
+        <Image 
+          src="/images/flag.png" 
+          alt="Kookata System" 
+          width={500} 
+          height={300} 
+          className={styles.leftImage} 
+          priority
+        />
         <div className={styles.textContent}>
           <h2>⚖️ Kookata: The Traditional Justice System</h2>
           <p>
@@ -77,7 +99,14 @@ export default function Home() {
 
       {/* Youth and Cultural Pride */}
       <div className={styles.contentContainer}>
-        <img src="images/fl.jpg" alt="Kambata Youth Pride" className={styles.leftImage} />
+        <Image 
+          src="/images/fl.jpg" 
+          alt="Kambata Youth Pride" 
+          width={500} 
+          height={300} 
+          className={styles.leftImage} 
+          priority
+        />
         <div className={styles.textContent}>
           <h2>🌟 Kambata Youth: Pride in Heritage and Family</h2>
           <p>

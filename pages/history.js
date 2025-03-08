@@ -41,7 +41,7 @@ export default function History() {
         <h2>🏙️ Major Towns & Capital City</h2>
         <ul>
           <li><strong>Capital City:</strong> Durame</li>
-          <li><strong>Major Towns:</strong> Damboya, Angacha, Shinshicho</li>
+          <li><strong>Major Towns:</strong> Damboya, Angacha, Shinshicho, Doyoganna & Funto</li>
         </ul>
       </section>
 

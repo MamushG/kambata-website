@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* About Kambata Heritage */}
       <div className={styles.contentContainer}>
-        <img src="images/km12.jpg" alt="Kambata Heritage" className={styles.leftImage} />
+        <img src="images/km3.jpg" alt="Kambata Heritage" className={styles.leftImage} />
         <div className={styles.textContent}>
           <h2>🌍 About Kambata Heritage</h2>
           <p>

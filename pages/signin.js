@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Script from "next/script"; // ✅ Import Script for Google AdSense
 
 export default function SignIn() {
   const router = useRouter();
@@ -21,83 +22,31 @@ export default function SignIn() {
   const [generatedCode, setGeneratedCode] = useState("");
 
   useEffect(() => {
-    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-    setUsers(storedUsers);
+    if (typeof window !== "undefined") {
+      const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+      setUsers(storedUsers);
+    }
   }, []);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  // Function to generate a 6-digit verification code
-  const generateCode = () => Math.floor(100000 + Math.random() * 900000).toString();
-
-  // ✅ Handle Registration
-  const handleRegister = (e) => {
-    e.preventDefault();
-    setError("");
-    setSuccess("");
-
-    if (user.password.length < 6 || !/[A-Z]/.test(user.password)) {
-      setError("Password must be at least 6 characters long and contain at least one uppercase letter.");
-      return;
-    }
-
-    if (users.some((u) => u.email === user.email)) {
-      setError("🚫 Email already registered. Please sign in.");
-      return;
-    }
-
-    const verificationCode = generateCode();
-    setGeneratedCode(verificationCode);
-
-    // Simulating sending verification code (Replace with email/SMS API)
-    alert(`Verification Code: ${verificationCode}`);
-
-    setIsVerifying(true);
-  };
-
-  // ✅ Handle Verification
-  const handleVerify = (e) => {
-    e.preventDefault();
-    if (user.verificationCode === generatedCode) {
-      const newUser = { ...user };
-      delete newUser.verificationCode; // Remove verification code after success
-
-      const updatedUsers = [...users, newUser];
-      setUsers(updatedUsers);
-      localStorage.setItem("users", JSON.stringify(updatedUsers));
-
-      alert("✅ Account successfully registered!");
-      setSuccess("Account created! You can now sign in.");
-      setIsNewUser(false);
-      setIsVerifying(false);
-      setUser({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        password: "",
-        verificationCode: "",
-      });
-    } else {
-      setError("🚫 Incorrect verification code. Please try again.");
-    }
-  };
-
-  // ✅ Handle Login & Redirect
   const handleSignIn = (e) => {
     e.preventDefault();
     setError("");
 
-    const existingUser = users.find((u) => u.email === user.email && u.password === user.password);
+    if (typeof window === "undefined") return;
+
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const existingUser = storedUsers.find((u) => u.email === user.email && u.password === user.password);
 
     if (existingUser) {
-      localStorage.setItem("currentUser", JSON.stringify(existingUser)); // ✅ Store logged-in user
+      localStorage.setItem("currentUser", JSON.stringify(existingUser));
       alert("✅ Sign in successful!");
 
       setTimeout(() => {
-        router.push("/dashboard"); // ✅ Redirect to Dashboard
+        router.push("/dashboard");
       }, 1000);
     } else {
       setError("🚫 Invalid email or password.");
@@ -105,55 +54,46 @@ export default function SignIn() {
   };
 
   return (
-    <div style={containerStyle}>
-      <h1>{isNewUser ? "📝 Create Account" : "🔑 Sign In"}</h1>
-      <p>{isNewUser ? "Join the Kambata Community today!" : "Welcome! Please sign in to continue."}</p>
+    <>
+      {/* ✅ Add Google AdSense Script */}
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4500183381967931"
+        crossOrigin="anonymous"
+      />
 
-      {error && <p style={errorStyle}>{error}</p>}
-      {success && <p style={successStyle}>{success}</p>}
+      <div style={containerStyle}>
+        <h1>{isNewUser ? "📝 Create Account" : "🔑 Sign In"}</h1>
+        <p>{isNewUser ? "Join the Kambata Community today!" : "Welcome! Please sign in to continue."}</p>
 
-      {!isVerifying ? (
-        <form onSubmit={isNewUser ? handleRegister : handleSignIn} style={formStyle}>
-          {isNewUser && (
-            <>
-              <input type="text" name="firstName" placeholder="First Name" value={user.firstName} onChange={handleChange} required style={inputStyle} />
-              <input type="text" name="lastName" placeholder="Last Name" value={user.lastName} onChange={handleChange} required style={inputStyle} />
-              <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required style={inputStyle} />
-              <input type="tel" name="phone" placeholder="Phone Number" value={user.phone} onChange={handleChange} required style={inputStyle} />
-              <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required style={inputStyle} />
-            </>
-          )}
+        {error && <p style={errorStyle}>{error}</p>}
+        {success && <p style={successStyle}>{success}</p>}
 
-          {!isNewUser && (
-            <>
-              <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required style={inputStyle} />
-              <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required style={inputStyle} />
-            </>
-          )}
-
-          <button type="submit" style={buttonStyle}>
-            {isNewUser ? "Register" : "Sign In"}
-          </button>
+        <form onSubmit={handleSignIn} style={formStyle}>
+          <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required style={inputStyle} />
+          <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required style={inputStyle} />
+          <button type="submit" style={buttonStyle}>Sign In</button>
         </form>
-      ) : (
-        <form onSubmit={handleVerify} style={formStyle}>
-          <input type="text" name="verificationCode" placeholder="Enter Verification Code" value={user.verificationCode} onChange={handleChange} required style={inputStyle} />
-          <button type="submit" style={buttonStyle}>Verify Account</button>
-        </form>
-      )}
 
-      <p style={{ marginTop: "10px", cursor: "pointer", color: "#007bff" }} onClick={() => setIsNewUser(!isNewUser)}>
-        {isNewUser ? "🔑 Already registered? Sign In" : "📝 New user? Create an account"}
-      </p>
+        {/* ✅ Google AdSense Ad Placement */}
+        <ins 
+          className="adsbygoogle"
+          style={{ display: "block", margin: "20px 0" }}
+          data-ad-client="ca-pub-4500183381967931"
+          data-ad-slot="1234567890" // ✅ Replace with your actual Ad Slot ID
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
 
-      <p style={{ marginTop: "10px", cursor: "pointer", color: "red" }}>
-        <Link href="/forgot-password">🔒 Forgot Password?</Link>
-      </p>
+        <p style={{ marginTop: "10px", cursor: "pointer", color: "#007bff" }}>
+          <Link href="/forgot-password">🔒 Forgot Password?</Link>
+        </p>
 
-      <p style={{ marginTop: "15px" }}>
-        <Link href="/">⬅️ Back to Home</Link>
-      </p>
-    </div>
+        <p style={{ marginTop: "15px" }}>
+          <Link href="/">⬅️ Back to Home</Link>
+        </p>
+      </div>
+    </>
   );
 }
 

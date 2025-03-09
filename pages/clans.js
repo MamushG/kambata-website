@@ -12,6 +12,17 @@ export default function KambataClans() {
         <h1>🌍 Major Clans of the Kambata People</h1>
       </header>
 
+      {/* ✅ Google AdSense Ad */}
+      <ins className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-4500183381967931"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+      </script>
+
       {/* Description Section */}
       <section className={styles.clanDescription}>
         <p>
@@ -46,6 +57,17 @@ export default function KambataClans() {
           ))}
         </ol>
       </section>
+
+      {/* ✅ Another Google AdSense Ad in Footer */}
+      <ins className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-4500183381967931"
+        data-ad-slot="1234567890"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+      </script>
 
       {/* Footer */}
       <footer className={styles.footer}>

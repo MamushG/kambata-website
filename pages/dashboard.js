@@ -6,21 +6,23 @@ export default function Dashboard() {
   const router = useRouter();
   const [currentUser, setCurrentUser] = useState(null);
 
-  // ✅ Use useCallback to prevent unnecessary re-renders
+  // ✅ Use useCallback to ensure localStorage is only accessed on the client side
   const checkUser = useCallback(() => {
-    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-    if (!storedUser) {
-      router.push("/signin"); // Redirect if not signed in
-    } else {
-      setCurrentUser(storedUser);
+    if (typeof window !== "undefined") {
+      const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+      if (!storedUser) {
+        router.replace("/signin"); // Redirect if not signed in
+      } else {
+        setCurrentUser(storedUser);
+      }
     }
   }, [router]);
 
   useEffect(() => {
     checkUser();
-  }, [checkUser]); // ✅ Now includes router dependency correctly
+  }, [checkUser]);
 
-  if (!currentUser) return <p>Loading...</p>;
+  if (!currentUser) return <p style={loadingStyle}>🔄 Loading...</p>;
 
   return (
     <div style={containerStyle}>
@@ -40,10 +42,13 @@ export default function Dashboard() {
           <button style={buttonStyle}>💳 Pay Membership Fee via Cash App</button>
         </Link>
 
-        <button style={logoutButtonStyle} onClick={() => { 
-          localStorage.removeItem("currentUser"); 
-          router.push("/signin"); 
-        }}>
+        <button
+          style={logoutButtonStyle}
+          onClick={() => {
+            localStorage.removeItem("currentUser");
+            router.replace("/signin");
+          }}
+        >
           🚪 Log Out
         </button>
       </div>
@@ -84,4 +89,10 @@ const buttonStyle = {
 const logoutButtonStyle = {
   ...buttonStyle,
   background: "red",
+};
+
+const loadingStyle = {
+  textAlign: "center",
+  fontSize: "1.2rem",
+  marginTop: "50px",
 };

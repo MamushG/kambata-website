@@ -34,6 +34,17 @@ export default function Home() {
           our rich history and culture.
         </p>
 
+        {/* ✅ Google AdSense Ad */}
+        <ins className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-4500183381967931"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <script>
+          {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+        </script>
+
         {/* Navigation Buttons */}
         <div className={styles.buttonRow}>
           <Link href="/history"><button className={styles.button}>📜 Learn History</button></Link>

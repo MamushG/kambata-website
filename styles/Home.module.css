@@ -1,52 +1,79 @@
-/* ✅ Home Page Styles */
 .homeContainer {
-  padding: 20px;
   text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .heroSection {
-  background-color: #f8f9fa;
-  padding: 30px;
-  border-radius: 8px;
+  background-color: #f5f5f5;
+  padding: 40px 20px;
+  border-radius: 10px;
 }
 
 .heroTitleContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.heroImage {
-  width: 100px;
-  height: auto;
-  margin-right: 15px;
+  gap: 10px;
 }
 
 .heroTitle {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.heroText {
-  font-size: 16px;
+  font-size: 2rem;
   color: #333;
 }
 
+.heroText {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #555;
+}
+
 .buttonRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
   margin-top: 20px;
 }
 
 .button {
   padding: 10px 15px;
-  font-size: 14px;
+  font-size: 1rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
   background: #007bff;
   color: white;
-  margin: 5px;
+  transition: background 0.3s;
 }
 
 .button:hover {
   background: #0056b3;
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.leftImage {
+  flex: 1;
+}
+
+.textContent {
+  flex: 2;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: #222;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
 }

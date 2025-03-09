@@ -7,7 +7,6 @@ export default function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    // Check if the user is an admin (Stored in Local Storage)
     const storedAdmin = localStorage.getItem('isAdmin');
     setIsAdmin(storedAdmin === 'true');
   }, []);
@@ -63,11 +62,6 @@ export default function Home() {
             The Kambata people, residing in Southern Ethiopia, have a rich and diverse history deeply rooted in resilience, unity, and cultural pride. 
             For centuries, they have upheld their unique traditions, values, and heritage, passing them down through generations. Known for their strong community bonds, 
             the Kambata people continue to celebrate their identity through festivals, music, and storytelling.
-          </p>
-          <p>
-            The Kambata region is famous for Mount Hambaricho, a sacred and historic landmark that holds deep spiritual and historical significance. 
-            The mountain is home to the renowned 777 stone-carved stairs, believed to be one of the oldest in Africa. 
-            This site has served as a symbol of strength and unity, attracting visitors and pilgrims who seek to connect with their ancestral past.
           </p>
         </div>
       </div>

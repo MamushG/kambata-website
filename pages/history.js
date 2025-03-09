@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../styles/History.module.css';
 
@@ -40,15 +39,9 @@ export default function History() {
         {/* Mount Hambaricho Section */}
         <section className={styles.section}>
           <h2>🏔️ Mount Hambaricho – A Historic Landmark</h2>
-          <Image 
-            src="/images/hambaricho.jpg"
-            alt="Mount Hambaricho"
-            width={600}
-            height={400}
-            className={styles.image}
-            priority
-          />
-          <p>One of the most significant historical and cultural sites of Kambata, featuring 777 stairs—believed to be the first in Africa and the seventh in the world.</p>
+          <p>One of the most significant historical and 
+            cultural sites of Kambata, featuring 777 stairs—believed 
+            to be the first in Africa and the seventh in the world.</p>
         </section>
 
         {/* Major Towns Section */}

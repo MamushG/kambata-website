@@ -1,24 +1,26 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import styles from '../styles/ForgotPassword.module.css';
+import { useState } from "react";
+import Link from "next/link";
+import styles from "../styles/ForgotPassword.module.css";
 
 export default function ForgotPassword() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState({ success: false, message: '' });
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState({ success: false, message: "" });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus({ success: false, message: '' });
+    setStatus({ success: false, message: "" });
 
-    // Simulating password reset request (backend needed for actual reset)
-    if (!email) {
-      setStatus({ success: false, message: '⚠️ Please enter your email.' });
+    if (!email.trim()) {
+      setStatus({ success: false, message: "⚠️ Please enter your email." });
       return;
     }
 
-    // Simulate sending email
+    // Simulating email submission
     setTimeout(() => {
-      setStatus({ success: true, message: '📩 A password reset link has been sent to your email.' });
+      setStatus({
+        success: true,
+        message: "📩 A password reset link has been sent to your email.",
+      });
     }, 1500);
   };
 
@@ -40,9 +42,12 @@ export default function ForgotPassword() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={styles.input}
+          aria-label="Email Address"
           required
         />
-        <button type="submit" className={styles.button}>📩 Send Reset Link</button>
+        <button type="submit" className={styles.button}>
+          📩 Send Reset Link
+        </button>
       </form>
 
       <p>

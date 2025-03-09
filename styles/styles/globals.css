@@ -1,0 +1,22 @@
+/* ✅ Global Styles for the Entire App */
+body {
+    font-family: "Times New Roman", serif;
+    color: black;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+  
+  h1, h2, h3 {
+    font-weight: bold;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  

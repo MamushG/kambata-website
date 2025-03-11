@@ -11,7 +11,7 @@ export default function SignIn() {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  // ✅ Handle Sign In
+  // ✅ Handle Sign In (without alert)
   const handleSignIn = (e) => {
     e.preventDefault();
     setError("");
@@ -19,12 +19,13 @@ export default function SignIn() {
     if (typeof window === "undefined") return;
 
     const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
-    const existingUser = storedUsers.find((u) => u.email === user.email && u.password === user.password);
+    const existingUser = storedUsers.find(
+      (u) => u.email === user.email && u.password === user.password
+    );
 
     if (existingUser) {
       localStorage.setItem("currentUser", JSON.stringify(existingUser));
-      alert("✅ Sign in successful!");
-      router.push("/dashboard");
+      router.push("/dashboard"); // ✅ Redirect without alert
     } else {
       setError("🚫 Invalid email or password.");
     }
@@ -38,8 +39,24 @@ export default function SignIn() {
       {error && <p style={errorStyle}>{error}</p>}
 
       <form onSubmit={handleSignIn} style={formStyle}>
-        <input type="email" name="email" placeholder="Email" value={user.email} onChange={handleChange} required style={inputStyle} />
-        <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} required style={inputStyle} />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={user.email}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={user.password}
+          onChange={handleChange}
+          required
+          style={inputStyle}
+        />
 
         <button type="submit" style={buttonStyle}>Sign In</button>
       </form>

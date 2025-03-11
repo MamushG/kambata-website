@@ -8,6 +8,7 @@ export default function History() {
       <Head>
         <title>History of the Kambata People</title>
         <meta name="description" content="Explore the rich history, traditions, and heritage of the Kambata people in Ethiopia." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <div className={styles.historyContainer}>
@@ -30,9 +31,9 @@ export default function History() {
 
         {/* Identity Section */}
         <section className={styles.section}>
-          <h2>🌍 The Identity of Kambata: Ethiopia&rsquo;s Cultural &lsquo;Melting Pot&rsquo;</h2>
+          <h2>🌍 The Identity of Kambata: Ethiopia’s Cultural ‘Melting Pot’</h2>
           <p>
-            The origins of the name &lsquo;Kambata&rsquo; are debated. Some believe it was given by the Oromos, meaning, &ldquo;You are surrounded&mdash;how will you escape?&rdquo; Others trace it to the Ambericho Seven Tribes.
+            The origins of the name ‘Kambata’ are debated. Some believe it was given by the Oromos, meaning, “You are surrounded—how will you escape?” Others trace it to the Ambericho Seven Tribes.
           </p>
         </section>
 

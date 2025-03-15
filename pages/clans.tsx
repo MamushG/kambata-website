@@ -3,13 +3,13 @@ import Breadcrumb from "../components/Breadcrumb";
 import kambataClans from "../data/kambataClans";
 import styles from "../styles/Clans.module.css";
 
-// ✅ Define a TypeScript interface for a Clan
+// ✅ Define a TypeScript interface for a Clan with optional properties
 interface Clan {
   id: number;
   name: string;
-  origin: string;
-  period: string;
-  description?: string; // Optional because not all clans have a description
+  origin?: string;  // ✅ Made optional to avoid errors
+  period?: string;  // ✅ Made optional to avoid errors
+  description?: string; // ✅ Already optional
 }
 
 const KambataClans: React.FC = () => {
@@ -81,12 +81,18 @@ const KambataClans: React.FC = () => {
                 onClick={() => handleToggleDetails(clan.id)}
               >
                 {clan.name}
-              </strong> 
-              <span className={styles.details}>
-                (Origin: {clan.origin}, Migration Period: {clan.period})
-              </span>
+              </strong>
 
-              {/* ✅ Show description when clan name is clicked (Only for clans 9-13) */}
+              {/* ✅ Only show origin & period if they exist (Fixes TypeScript error) */}
+              {(clan.origin || clan.period) && (
+                <span className={styles.details}>
+                  {clan.origin && `Origin: ${clan.origin}`} 
+                  {clan.origin && clan.period && ", "}
+                  {clan.period && `Migration Period: ${clan.period}`}
+                </span>
+              )}
+
+              {/* ✅ Show description when clan name is clicked */}
               {expandedClan === clan.id && clan.description && (
                 <p className={styles.description}>{clan.description}</p>
               )}

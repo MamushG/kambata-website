@@ -2,18 +2,24 @@ import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+interface User {
+  firstName: string;
+  email: string;
+  phone: string;
+}
+
 export default function Dashboard() {
   const router = useRouter();
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
-  // ✅ Use useCallback to ensure localStorage is only accessed on the client side
+  // ✅ Ensure localStorage is accessed on the client side
   const checkUser = useCallback(() => {
     if (typeof window !== "undefined") {
-      const storedUser = JSON.parse(localStorage.getItem("currentUser"));
-      if (!storedUser) {
-        router.replace("/signin"); // Redirect if not signed in
+      const storedUser = localStorage.getItem("currentUser");
+      if (storedUser) {
+        setCurrentUser(JSON.parse(storedUser));
       } else {
-        setCurrentUser(storedUser);
+        router.replace("/signin"); // Redirect if not signed in
       }
     }
   }, [router]);
@@ -61,7 +67,7 @@ export default function Dashboard() {
 }
 
 // Styles
-const containerStyle = {
+const containerStyle: React.CSSProperties = {
   padding: "40px",
   maxWidth: "500px",
   margin: "0 auto",
@@ -69,14 +75,14 @@ const containerStyle = {
   fontFamily: "Arial, sans-serif",
 };
 
-const buttonContainer = {
+const buttonContainer: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   gap: "10px",
   marginTop: "20px",
 };
 
-const buttonStyle = {
+const buttonStyle: React.CSSProperties = {
   padding: "12px",
   fontSize: "1rem",
   borderRadius: "5px",
@@ -86,12 +92,12 @@ const buttonStyle = {
   color: "white",
 };
 
-const logoutButtonStyle = {
+const logoutButtonStyle: React.CSSProperties = {
   ...buttonStyle,
   background: "red",
 };
 
-const loadingStyle = {
+const loadingStyle: React.CSSProperties = {
   textAlign: "center",
   fontSize: "1.2rem",
   marginTop: "50px",

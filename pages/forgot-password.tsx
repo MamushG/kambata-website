@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import Link from "next/link";
 import styles from "../styles/ForgotPassword.module.css";
 
-export default function ForgotPassword() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState({ success: false, message: "" });
+interface Status {
+  success: boolean;
+  message: string;
+}
 
-  const handleSubmit = async (e) => {
+export default function ForgotPassword() {
+  const [email, setEmail] = useState<string>("");
+  const [status, setStatus] = useState<Status>({ success: false, message: "" });
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus({ success: false, message: "" });
 

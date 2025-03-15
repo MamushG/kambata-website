@@ -1,16 +1,61 @@
 const kambataClans = [
-  { id: 1, name: "Oyeta (Ras Hamalmal’s Dynasty)", origin: "Gondar", period: "16th century" },
-  { id: 2, name: "Gulba Bulga (Shoa)", origin: "Shoa", period: "16th century" },
-  { id: 3, name: "Nurto", origin: "Gondar", period: "16th century" },
-  { id: 4, name: "Hajibbo (Hate)", origin: "Amhara Gayint", period: "Before 15th century" },
-  { id: 5, name: "Ongot (ta)", origin: "Gayint", period: "Before 15th century" },
-  { id: 6, name: "Ennagos /Dildiy/", origin: "Amhara Gayint", period: "17th century" },
-  { id: 7, name: "Quntanno", origin: "Gondar", period: "16th century" },
-  { id: 8, name: "Sintarro", origin: "Gondar", period: "16th century" },
-  // 📌 Five Brothers Who Migrated to Kambata in the 16th-18th Century
+    { 
+      id: 1, 
+      name: "Oyeta", 
+      description: "Oyeta migrated in the 16th century from the Gondar, Ras Hamalmal’s Dynasty, bringing with it a deep-rooted heritage and strong leadership traditions. Within Kambata society, the Oyeta clan is known for its pride, resilience, and significant contributions to political and social affairs. It has played a crucial role in shaping the region’s governance and community structure. As one of the oldest clans of Amhara origin, Oyeta stands alongside many other prominent Amhara-rooted clans, preserving its legacy and influence throughout generations in Kambata.", 
+    },
+    { 
+      id: 2, 
+      name: "Gulba Bulga (Shoa)", 
+      description: "The Gulba clan is a historically significant clan from Shoa, renowned for its strong leadership and active involvement in governance. Throughout history, members of the Gulba clan have played influential roles in decision-making, community organization, and regional politics. Their legacy of leadership continues to shape the social and political landscape of Kambata, making them one of the most influencial clans in the region.", 
+      origin: "Shoa", 
+      period: "16th century" 
+    },
+    { 
+      id: 3, 
+      name: "Nurto", 
+      description: "An ancient Kambata clan originating from Gondar.", 
+      origin: "Gondar", 
+      period: "16th century" 
+    },
+    { 
+      id: 4, 
+      name: "Hajibbo (Hate)", 
+      description: "A noble family tracing its roots to Amhara Gayint before the 15th century.", 
+      origin: "Amhara Gayint", 
+      period: "Before 15th century" 
+    },
+    { 
+      id: 5, 
+      name: "Ongot (ta)", 
+      description: "A historically significant clan from Gayint with deep cultural influence.", 
+      origin: "Gayint", 
+      period: "Before 15th century" 
+    },
+    { 
+      id: 6, 
+      name: "Ennagos /Dildiy/", 
+      description: "A prominent clan from Amhara Gayint that migrated in the 17th century.", 
+      origin: "Amhara Gayint", 
+      period: "17th century" 
+    },
+    { 
+      id: 7, 
+      name: "Quntanno", 
+      description: "A well-established clan from Gondar, contributing to Kambata’s heritage.", 
+      origin: "Gondar", 
+      period: "16th century" 
+    },
+    { 
+      id: 8, 
+      name: "Sintarro", 
+      description: "A key Gondar-originated clan that influenced early Kambata governance.", 
+      origin: "Gondar", 
+      period: "16th century" 
+    },
   {
     id: 9,
-    name: "Qorandi",
+    name: "Qorandi Amara",
     origin: "Amhara Manz (Shoa)",
     period: "17th century",
     description:
@@ -18,7 +63,7 @@ const kambataClans = [
   },
   {
     id: 10,
-    name: "Ennagari",
+    name: "Ennagari Amara",
     origin: "Amhara Manz, Enner Gurage",
     period: "17th century",
     description:
@@ -26,15 +71,15 @@ const kambataClans = [
   },
   {
     id: 11,
-    name: "Garado",
+    name: "Garado Amara",
     origin: "Amhara Garado (Wollo)",
     period: "18th century",
     description:
-      "Garado migrated from Wollo in the 18th century, bringing with him advanced techniques in craftsmanship and metalwork. He played a key role in transforming local industries, and his descendants became renowned for their skills in blacksmithing and construction within Kambata society.",
+      "Garado migrated from Wollo in the 17th century alongside his brothers, bringing with him advanced skills and knowledge. He was known for his strength, wisdom, and decisive leadership within his family. Seeking new opportunities, he and his wife moved to the southern region of the Ethiopian Kingdom, where he became the patriarch of a large family, though the exact number of his children remains unknown. During that era, it was common for individuals to migrate within the Ethiopian Kingdom and establish their own clans, a tradition Garado followed as he carried his Amhara heritage to Kambata. Over time, he emerged as a respected community leader, landowner, and founder of the Garado Amara clan, which became an integral part of Kambata society.",
   },
   {
     id: 12,
-    name: "Abrahmi",
+    name: "Abrahmi Amara",
     origin: "Amhara Manz (Shoa)",
     period: "17th century",
     description:
@@ -127,7 +172,8 @@ const kambataClans = [
   { id: 88, name: "Gura", origin: "Guraghe", period: "19th century" },
   { id: 89, name: "Jagu", origin: "Guraghe", period: "19th century" },
   { id: 90, name: "Dibe", origin: "Guraghe", period: "19th century" },
-  { id: 91, name: "Fuga", origin: "Guraghe", period: "Unknown" }
+  { id: 91, name: "Fuga", origin: "Guraghe", period: "Before 15th century" },
+  {id: 92, name: "Omoshogorra", origin: "Ennariya, Masmas, Enamor-Guraghe", period: "18th century" }
 ];
 
 export default kambataClans;

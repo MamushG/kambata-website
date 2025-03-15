@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
-  const [isAdmin, setIsAdmin] = useState(false);
+const Home: React.FC = () => {
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
     const storedAdmin = localStorage.getItem('isAdmin');
@@ -25,7 +25,7 @@ export default function Home() {
             className={styles.heroImage} 
             priority
           />
-          <h1 className={styles.heroTitle}>Welcome to Kambata Community - Atlanta, Georgia</h1>
+          <h1 className={styles.heroTitle}>Welcome to Kambata Community</h1>
         </div>
         <p className={styles.heroText}>
           Let’s come together to strengthen our bonds, celebrate our heritage, 
@@ -68,11 +68,54 @@ export default function Home() {
           priority
         />
         <div className={styles.textContent}>
-          <h2>🌍 About Kambata Heritage</h2>
+          <h2>🌿 About Kambata Heritage and Kambata Youth</h2>
           <p>
-            The Kambata people, residing in Southern Ethiopia, have a rich and diverse history deeply rooted in resilience, unity, and cultural pride. 
-            For centuries, they have upheld their unique traditions, values, and heritage, passing them down through generations. Known for their strong community bonds, 
-            the Kambata people continue to celebrate their identity through festivals, music, and storytelling.
+            In Kambata culture, love is a journey filled with excitement, 
+            tradition, and deep family connections. Young engaged couples 
+            proudly embrace their heritage as they explore the historic sites 
+            of Kambata before their big day.
+          </p>
+
+          <h3>🌿 The Tour Before "I Do"</h3>
+          <p>
+            In the heart of Kambata, it's a cherished tradition for 
+            engaged couples to tour their homeland before marriage. 
+            As they walk through the lush green fields, enjoy the scenic 
+            mountains, and visit historical sites, they take a moment to reflect 
+            on their love, their families, and the life they are about to build together.
+          </p>
+
+          <h3>💒 The Wedding Celebration: A Union of Love & Family</h3>
+          <p>
+            After their tour, it's time to tie the knot! The couple returns home, 
+            where a grand wedding ceremony awaits them. Held in a beautiful church, 
+            the bride and groom exchange vows, surrounded by both families, close friends, 
+            neighbors, and even coworkers—a true celebration of unity, love, and culture.
+          </p>
+
+          <ul>
+            <li>🎶 The sound of joyful singing and traditional music fills the air.</li>
+            <li>🎊 The dancing never stops, and the blessing of elders makes the moment even more special.</li>
+            <li>🥂 The feast begins, with delicious traditional dishes shared among loved ones.</li>
+          </ul>
+
+          <h3>🙏 Faith & Tradition: The Heart of Kambata</h3>
+          <p>
+            Kambata society is deeply spiritual, with faith playing a 
+            vital role in daily life. The dominant religion is Christianity 
+            (Protestant), and just like their ancestors, the younger generation 
+            continues to uphold strong religious values, embracing a life of faith, 
+            community, and togetherness.
+          </p>
+
+          <h3>🎉 A Legacy of Strength & Cultural Pride</h3>
+          <p>
+            For centuries, the Kambata people have nurtured a legacy of 
+            resilience, unity, and cultural excellence. Their traditions, 
+            values, and rich heritage have been passed down through generations, 
+            keeping the spirit of their ancestors alive. With vibrant festivals, 
+            rhythmic music, and captivating storytelling, Kambata remains a land of 
+            joy, history, and endless pride.
           </p>
         </div>
       </div>
@@ -102,35 +145,12 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Youth and Cultural Pride */}
-      <div className={styles.contentContainer}>
-        <Image 
-          src="/images/fl.jpg" 
-          alt="Kambata Youth Pride" 
-          width={500} 
-          height={300} 
-          className={styles.leftImage} 
-          priority
-        />
-        <div className={styles.textContent}>
-          <h2>🌟 Kambata Youth: Pride in Heritage and Family</h2>
-          <p>
-            Kambata youth take immense pride in their rich culture, embracing their identity with honor and enthusiasm. 
-            Whether during festivals, traditional dances, or community gatherings, they wear their cultural attire 
-            with dignity and joy.
-          </p>
-          <p>
-            Surrounded by loved ones, they celebrate traditions that have been passed down for generations. 
-            Their unity, resilience, and commitment to preserving Kambata heritage ensure that their history 
-            remains alive for future generations.
-          </p>
-        </div>
-      </div>
-
       {/* Footer */}
       <footer className={styles.footer}>
         <p>© 2025 Kambata Heritage. All rights reserved.</p>
       </footer>
     </div>
   );
-}
+};
+
+export default Home;

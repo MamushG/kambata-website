@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/History.module.css';
 
-export default function History() {
+const History: React.FC = () => {
   return (
     <>
       <Head>
@@ -40,9 +40,9 @@ export default function History() {
         {/* Mount Hambaricho Section */}
         <section className={styles.section}>
           <h2>🏔️ Mount Hambaricho – A Historic Landmark</h2>
-          <p>One of the most significant historical and 
-            cultural sites of Kambata, featuring 777 stairs—believed 
-            to be the first in Africa and the seventh in the world.</p>
+          <p>
+            One of the most significant historical and cultural sites of Kambata, featuring 777 stairs—believed to be the first in Africa and the seventh in the world.
+          </p>
         </section>
 
         {/* Major Towns Section */}
@@ -64,13 +64,17 @@ export default function History() {
           </ul>
 
           <h3>🎊 The Annual Masaala Festival</h3>
-          <p>The Masaala Festival unites Kambata families from across Ethiopia and around the world to celebrate their heritage and strengthen bonds through joyful reunions.</p>
+          <p>
+            The Masaala Festival unites Kambata families from across Ethiopia and around the world to celebrate their heritage and strengthen bonds through joyful reunions.
+          </p>
         </section>
 
         {/* Call to Action */}
         <section className={styles.section}>
           <h2>🔍 Encouraging Further Research</h2>
-          <p>The goal of this manuscript is to preserve and document the history of the Kambata people. However, history is an ongoing process, and we welcome further research, corrections, and additions.</p>
+          <p>
+            The goal of this manuscript is to preserve and document the history of the Kambata people. However, history is an ongoing process, and we welcome further research, corrections, and additions.
+          </p>
         </section>
 
         {/* Footer Section */}
@@ -83,4 +87,6 @@ export default function History() {
       </div>
     </>
   );
-}
+};
+
+export default History;

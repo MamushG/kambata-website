@@ -1,20 +1,21 @@
 import Link from 'next/link';
+import { CSSProperties } from 'react';
 
-export default function Fund() {
+const Fund: React.FC = () => {
   return (
     <div style={containerStyle}>
       <div style={cardStyle}>
         <h1 style={titleStyle}>💰 Support our page as we work to enhance 
-          and improve your experience! </h1>
+          and improve your experience! 
+        </h1>
         
         <p style={textStyle}>
-        We are the Kambata Community based in Atlanta, 
-        dedicated to preserving, documenting, and sharing 
-        the untold history of the Kambata people. Your support is 
-        essential in ensuring that future generations—regardless of 
-        where they live—can 
-        access and celebrate their rich heritage. 
-        Join us in this important mission!
+          We are the Kambata Community based in Atlanta, 
+          dedicated to preserving, documenting, and sharing 
+          the untold history of the Kambata people. Your support is 
+          essential in ensuring that future generations—regardless of 
+          where they live—can access and celebrate their rich heritage. 
+          Join us in this important mission!
         </p>
         
         {/* ✅ CashApp Donation Buttons */}
@@ -30,8 +31,8 @@ export default function Fund() {
 
           {/* Recurring Donations (Guide Users) */}
           <p style={recurringTextStyle}>
-            Want to support monthly? You can set up a **recurring donation** in your **CashApp 
-            settings** to send a fixed amount every month to support the community development <strong>$kambatapage</strong>.
+            Want to support monthly? You can set up a <strong>recurring donation</strong> in your <strong>CashApp 
+            settings</strong> to send a fixed amount every month to support the community development <strong>$kambatapage</strong>.
           </p>
 
           {/* ✅ Back to Home */}
@@ -42,10 +43,10 @@ export default function Fund() {
       </div>
     </div>
   );
-}
+};
 
-// Styling for the page
-const containerStyle = {
+// Styling for the page (Typed with CSSProperties)
+const containerStyle: CSSProperties = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -54,7 +55,7 @@ const containerStyle = {
   padding: '20px',
 };
 
-const cardStyle = {
+const cardStyle: CSSProperties = {
   padding: '40px',
   maxWidth: '500px',
   backgroundColor: 'white',
@@ -65,35 +66,35 @@ const cardStyle = {
   transition: 'transform 0.3s ease, box-shadow 0.3s ease',
 };
 
-const titleStyle = {
+const titleStyle: CSSProperties = {
   fontSize: '24px',
   fontWeight: 'bold',
   color: '#0072ff',
   marginBottom: '15px',
 };
 
-const textStyle = {
+const textStyle: CSSProperties = {
   fontSize: '16px',
   color: '#333',
   marginBottom: '15px',
   lineHeight: '1.6',
 };
 
-const recurringTextStyle = {
+const recurringTextStyle: CSSProperties = {
   fontSize: '14px',
   color: '#555',
   marginTop: '10px',
   fontStyle: 'italic',
 };
 
-const buttonContainer = {
+const buttonContainer: CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   gap: '10px',
   alignItems: 'center',
 };
 
-const primaryButtonStyle = {
+const primaryButtonStyle: CSSProperties = {
   padding: '12px 20px',
   fontSize: '1rem',
   borderRadius: '8px',
@@ -104,7 +105,7 @@ const primaryButtonStyle = {
   transition: 'background-color 0.3s ease',
 };
 
-const secondaryButtonStyle = {
+const secondaryButtonStyle: CSSProperties = {
   padding: '12px 20px',
   fontSize: '1rem',
   borderRadius: '8px',
@@ -114,3 +115,5 @@ const secondaryButtonStyle = {
   color: 'white',
   transition: 'background-color 0.3s ease',
 };
+
+export default Fund;

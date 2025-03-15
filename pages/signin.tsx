@@ -1,24 +1,30 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function SignIn() {
-  const router = useRouter();
-  const [user, setUser] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+// ✅ Define User Interface
+interface User {
+  email: string;
+  password: string;
+}
 
-  const handleChange = (e) => {
+const SignIn: React.FC = () => {
+  const router = useRouter();
+  const [user, setUser] = useState<User>({ email: "", password: "" });
+  const [error, setError] = useState<string>("");
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   // ✅ Handle Sign In (without alert)
-  const handleSignIn = (e) => {
+  const handleSignIn = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
     if (typeof window === "undefined") return;
 
-    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]") as User[];
     const existingUser = storedUsers.find(
       (u) => u.email === user.email && u.password === user.password
     );
@@ -74,10 +80,10 @@ export default function SignIn() {
       </p>
     </div>
   );
-}
+};
 
-// ✅ Styles
-const containerStyle = {
+// ✅ Styles (Typed with CSSProperties)
+const containerStyle: React.CSSProperties = {
   padding: "40px",
   maxWidth: "400px",
   margin: "0 auto",
@@ -85,20 +91,20 @@ const containerStyle = {
   fontFamily: "Arial, sans-serif",
 };
 
-const formStyle = {
+const formStyle: React.CSSProperties = {
   display: "flex",
   flexDirection: "column",
   gap: "10px",
 };
 
-const inputStyle = {
+const inputStyle: React.CSSProperties = {
   padding: "10px",
   fontSize: "1rem",
   borderRadius: "5px",
   border: "1px solid #ccc",
 };
 
-const buttonStyle = {
+const buttonStyle: React.CSSProperties = {
   padding: "12px",
   fontSize: "1rem",
   borderRadius: "5px",
@@ -108,7 +114,9 @@ const buttonStyle = {
   color: "white",
 };
 
-const errorStyle = {
+const errorStyle: React.CSSProperties = {
   color: "red",
   fontWeight: "bold",
 };
+
+export default SignIn;

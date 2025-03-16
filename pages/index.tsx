@@ -28,9 +28,9 @@ const Home: React.FC = () => {
           <h1 className={styles.heroTitle}>Welcome to Kambata Community</h1>
         </div>
         <p className={styles.heroText}>
-          Let’s come together to strengthen our bonds, celebrate our heritage, 
+          Let&apos;s come together to strengthen our bonds, celebrate our heritage, 
           and learn about our people. We are Kambata—more than just words, 
-          we take action! Let’s stand together, support one another, and embrace 
+          we take action! Let&apos;s stand together, support one another, and embrace 
           our rich history and culture.
         </p>
 
@@ -47,12 +47,16 @@ const Home: React.FC = () => {
 
         {/* Navigation Buttons */}
         <div className={styles.buttonRow}>
-          <Link href="/history"><button className={styles.button}>📜 Learn History</button></Link>
-          <Link href="/clans"><button className={styles.button}>🌍 Explore Clans</button></Link>
-          <Link href="/store"><button className={styles.button}>🛍️ Shop Cultural Items</button></Link>
-          <Link href="/signin"><button className={styles.button}>🔑 Member Sign In</button></Link>
-          <Link href="/fund"><button className={styles.button}>💰 Support the Page</button></Link>
-          <Link href="/contact"><button className={styles.button}>📩 Contact Us</button></Link>
+        <div className={styles.buttonRow}>
+  <Link href="/history"><button className={styles.button}>📜 Learn History</button></Link>
+  <Link href="/clans"><button className={styles.button}>🌍 Explore Clans</button></Link>
+  <Link href="/store"><button className={styles.button}>🛍️ Shop Cultural Items</button></Link>
+  <Link href="/signin"><button className={styles.button}>🔑 Member Sign In</button></Link>
+  <Link href="/fund"><button className={styles.button}>💰 Support the Page</button></Link>
+  <Link href="/contact"><button className={styles.button}>📩 Contact Us</button></Link>
+  <Link href="/advertise"><button className={styles.button}>📢 Advertise with Us</button></Link>
+</div>
+
           {isAdmin && <Link href="/members"><button className={styles.button}>👥 View Members</button></Link>}
         </div>
       </div>
@@ -76,9 +80,9 @@ const Home: React.FC = () => {
             of Kambata before their big day.
           </p>
 
-          <h3>🌿 The Tour Before "I Do"</h3>
+          <h3>🌿 The Tour Before &quot;I Do&quot;</h3>
           <p>
-            In the heart of Kambata, it's a cherished tradition for 
+            In the heart of Kambata, it&apos;s a cherished tradition for 
             engaged couples to tour their homeland before marriage. 
             As they walk through the lush green fields, enjoy the scenic 
             mountains, and visit historical sites, they take a moment to reflect 
@@ -87,7 +91,7 @@ const Home: React.FC = () => {
 
           <h3>💒 The Wedding Celebration: A Union of Love & Family</h3>
           <p>
-            After their tour, it's time to tie the knot! The couple returns home, 
+            After their tour, it&apos;s time to tie the knot! The couple returns home, 
             where a grand wedding ceremony awaits them. Held in a beautiful church, 
             the bride and groom exchange vows, surrounded by both families, close friends, 
             neighbors, and even coworkers—a true celebration of unity, love, and culture.
@@ -117,31 +121,6 @@ const Home: React.FC = () => {
             rhythmic music, and captivating storytelling, Kambata remains a land of 
             joy, history, and endless pride.
           </p>
-        </div>
-      </div>
-
-      {/* Kookata Traditional Justice System */}
-      <div className={styles.contentContainer}>
-        <Image 
-          src="/images/flag.png" 
-          alt="Kookata System" 
-          width={500} 
-          height={300} 
-          className={styles.leftImage} 
-          priority
-        />
-        <div className={styles.textContent}>
-          <h2>⚖️ Kookata: The Traditional Justice System</h2>
-          <p>
-            The Kambata people have a unique and highly respected traditional court system known as Kookata. 
-            This system serves as the highest traditional court, where elders gather to address serious crimes, resolve disputes, and uphold justice within the community.
-          </p>
-          <ul>
-            <li>🏛️ <strong>Highest Traditional Court:</strong> Handles major crimes, ethical violations, and social disputes.</li>
-            <li>👴 <strong>Elders as Judges:</strong> Wisdom and integrity guide their rulings.</li>
-            <li>🔍 <strong>Investigation & Accountability:</strong> Identifies and investigates threats to social harmony.</li>
-            <li>🤝 <strong>Collaboration with Government:</strong> Works alongside modern legal systems to reinforce justice.</li>
-          </ul>
         </div>
       </div>
 

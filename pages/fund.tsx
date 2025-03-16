@@ -10,8 +10,8 @@ const Fund: React.FC = () => {
         </h1>
         
         <p style={textStyle}>
-          We are the Kambata Community based in Atlanta, 
-          dedicated to preserving, documenting, and sharing 
+          We are Kambata Community members, 
+          volunterily dedicated to preserving, documenting, and sharing 
           the untold history of the Kambata people. Your support is 
           essential in ensuring that future generations—regardless of 
           where they live—can access and celebrate their rich heritage. 

@@ -78,7 +78,7 @@ const Home: React.FC = () => {
           priority
         />
         <div className={styles.textContent}>
-          <h3>🌿 The Tour Before "I Do"</h3>
+          <h3>🌿 The Tour Before &quot;I Do&quot;</h3>
           <p>
             In the heart of Kambata, it&apos;s a cherished tradition for 
             engaged couples to tour their homeland before marriage. 

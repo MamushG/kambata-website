@@ -4,85 +4,84 @@
   padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: #f9f9f9;
 }
 
 /* ====== Hero Section ====== */
 .heroSection {
   background: linear-gradient(to right, #007bff, #0056b3);
-  padding: 50px 20px;
+  padding: 30px 20px; /* ✅ Reduced padding */
   border-radius: 12px;
   color: white;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px; /* ✅ Reduced spacing before buttons */
 }
 
 .heroTitleContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
+  gap: 12px;
+  margin-bottom: 5px; /* ✅ Reduced gap */
 }
 
 .heroImage {
-  width: 80px;
+  width: 70px;
   height: auto;
 }
 
 .heroTitle {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: bold;
 }
 
 .heroText {
-  font-size: 1.3rem;
-  margin-top: 15px;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  margin-top: 8px; /* ✅ Reduced margin */
+  line-height: 1.5;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ====== Navigation Buttons ====== */
+/* ====== Navigation Buttons (Now Closer to Hero) ====== */
 .buttonRow {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px;
-  margin-top: 25px;
+  margin-top: 10px; /* ✅ Reduced top margin */
 }
 
 .button {
-  padding: 12px 18px;
+  padding: 12px 20px;
   font-size: 1.1rem;
   font-weight: bold;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  background: #ff6600;
+  background: linear-gradient(to right, #ff6600, #ff3300);
   color: white;
   transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
 }
 
 .button:hover {
-  background: #cc5200;
-  transform: translateY(-2px);
+  background: linear-gradient(to right, #cc5200, #b32d00);
+  transform: scale(1.04);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* ====== Google AdSense Ads ====== */
-.adsbygoogle {
-  display: block;
-  margin: 30px auto;
-  max-width: 100%;
-  text-align: center;
-  padding: 15px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.8);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease-in-out;
+/* ✅ Admin Button - Differentiated */
+.adminButton {
+  background: linear-gradient(to right, #ffcc00, #ff9900);
+  color: #222;
 }
 
-.adsbygoogle:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+.adminButton:hover {
+  background: linear-gradient(to right, #e6b800, #cc8500);
 }
 
 /* ====== Content Section ====== */
@@ -91,11 +90,11 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 30px;
   background: white;
-  padding: 30px;
+  padding: 25px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .leftImage {
@@ -112,31 +111,31 @@
 .textContent {
   flex: 2;
   text-align: left;
-  padding-left: 25px;
+  padding-left: 20px;
 }
 
 .textContent h2 {
   font-size: 2rem;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .textContent p {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.5;
   color: #555;
 }
 
 /* ====== Footer Section ====== */
 .footer {
-  margin-top: 50px;
-  padding: 25px;
+  margin-top: 30px;
+  padding: 20px;
   background: #222;
   color: white;
   text-align: center;
-  font-size: 1.1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .footer p {

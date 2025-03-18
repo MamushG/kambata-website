@@ -1,20 +1,20 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import styles from '../styles/Home.module.css';
+import Link from "next/link";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import styles from "../styles/Home.module.css";
 
 const Home: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
-    const storedAdmin = localStorage.getItem('isAdmin');
-    setIsAdmin(storedAdmin === 'true');
+    const storedAdmin = localStorage.getItem("isAdmin");
+    setIsAdmin(storedAdmin === "true");
   }, []);
 
   return (
     <div className={styles.homeContainer}>
-
-      {/* Hero Section */}
+      
+      {/* ✅ Hero Section */}
       <div className={styles.heroSection}>
         <div className={styles.heroTitleContainer}>
           <Image 
@@ -33,39 +33,25 @@ const Home: React.FC = () => {
           we take action! Let&apos;s stand together, support one another, and embrace 
           our rich history and culture.
         </p>
-
-        {/* ✅ Google AdSense Ad */}
-        <ins className="adsbygoogle"
-          style={{ display: 'block' }}
-          data-ad-client="ca-pub-4500183381967931"
-          data-ad-slot="1234567890"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-        <script>
-          {`(adsbygoogle = window.adsbygoogle || []).push({});`}
-        </script>
-
-        {/* Navigation Buttons */}
-        <div className={styles.buttonRow}>
-        <div className={styles.buttonRow}>
-  <Link href="/history"><button className={styles.button}>📜 Learn History</button></Link>
-  <Link href="/clans"><button className={styles.button}>🌍 Explore Clans</button></Link>
-  <Link href="/store"><button className={styles.button}>🛍️ Shop Cultural Items</button></Link>
-  <Link href="/signin"><button className={styles.button}>🔑 Member Sign In</button></Link>
-  <Link href="/fund"><button className={styles.button}>💰 Support the Page</button></Link>
-  <Link href="/contact"><button className={styles.button}>📩 Contact Us</button></Link>
-  <Link href="/advertise"><button className={styles.button}>📢 Advertise with Us</button></Link>
-</div>
-
-          {isAdmin && <Link href="/members"><button className={styles.button}>👥 View Members</button></Link>}
-        </div>
       </div>
 
-      {/* About Kambata Heritage */}
+      {/* ✅ Navigation Buttons - Placed Closer to Hero Section */}
+      <div className={styles.buttonRow}>
+        <Link href="/history"><button className={styles.button}>📜 Learn History</button></Link>
+        <Link href="/clans"><button className={styles.button}>🌍 Explore Clans</button></Link>
+        <Link href="/store"><button className={styles.button}>🛍️ Shop Cultural Items</button></Link>
+        <Link href="/signin"><button className={styles.button}>🔑 Member Sign In</button></Link>
+        <Link href="/fund"><button className={styles.button}>💰 Support the Page</button></Link>
+        <Link href="/contact"><button className={styles.button}>📩 Contact Us</button></Link>
+        <Link href="/advertise"><button className={styles.button}>📢 Advertise with Us</button></Link>
+        {isAdmin && <Link href="/members"><button className={`${styles.button} ${styles.adminButton}`}>👥 View Members</button></Link>}
+      </div>
+
+      {/* ✅ About Kambata Heritage - Three Images Included */}
       <div className={styles.contentContainer}>
         <Image 
-          src="/images/km3.jpg" 
-          alt="Kambata Heritage" 
+          src="/images/fl.jpg" 
+          alt="Kambata Flag Representation" 
           width={500} 
           height={300} 
           className={styles.leftImage} 
@@ -79,8 +65,20 @@ const Home: React.FC = () => {
             proudly embrace their heritage as they explore the historic sites 
             of Kambata before their big day.
           </p>
+        </div>
+      </div>
 
-          <h3>🌿 The Tour Before &quot;I Do&quot;</h3>
+      <div className={styles.contentContainer}>
+        <Image 
+          src="/images/km2.jpg" 
+          alt="Kambata Traditional Scene" 
+          width={500} 
+          height={300} 
+          className={styles.leftImage} 
+          priority
+        />
+        <div className={styles.textContent}>
+          <h3>🌿 The Tour Before "I Do"</h3>
           <p>
             In the heart of Kambata, it&apos;s a cherished tradition for 
             engaged couples to tour their homeland before marriage. 
@@ -88,7 +86,19 @@ const Home: React.FC = () => {
             mountains, and visit historical sites, they take a moment to reflect 
             on their love, their families, and the life they are about to build together.
           </p>
+        </div>
+      </div>
 
+      <div className={styles.contentContainer}>
+        <Image 
+          src="/images/km3.jpg" 
+          alt="Kambata Cultural Celebration" 
+          width={500} 
+          height={300} 
+          className={styles.leftImage} 
+          priority
+        />
+        <div className={styles.textContent}>
           <h3>💒 The Wedding Celebration: A Union of Love & Family</h3>
           <p>
             After their tour, it&apos;s time to tie the knot! The couple returns home, 
@@ -96,13 +106,17 @@ const Home: React.FC = () => {
             the bride and groom exchange vows, surrounded by both families, close friends, 
             neighbors, and even coworkers—a true celebration of unity, love, and culture.
           </p>
-
           <ul>
             <li>🎶 The sound of joyful singing and traditional music fills the air.</li>
             <li>🎊 The dancing never stops, and the blessing of elders makes the moment even more special.</li>
             <li>🥂 The feast begins, with delicious traditional dishes shared among loved ones.</li>
           </ul>
+        </div>
+      </div>
 
+      {/* ✅ Faith & Tradition */}
+      <div className={styles.contentContainer}>
+        <div className={styles.textContent}>
           <h3>🙏 Faith & Tradition: The Heart of Kambata</h3>
           <p>
             Kambata society is deeply spiritual, with faith playing a 
@@ -111,7 +125,12 @@ const Home: React.FC = () => {
             continues to uphold strong religious values, embracing a life of faith, 
             community, and togetherness.
           </p>
+        </div>
+      </div>
 
+      {/* ✅ A Legacy of Strength */}
+      <div className={styles.contentContainer}>
+        <div className={styles.textContent}>
           <h3>🎉 A Legacy of Strength & Cultural Pride</h3>
           <p>
             For centuries, the Kambata people have nurtured a legacy of 
@@ -124,7 +143,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer */}
+      {/* ✅ Footer */}
       <footer className={styles.footer}>
         <p>© 2025 Kambata Heritage. All rights reserved.</p>
       </footer>
